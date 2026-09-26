@@ -4,6 +4,7 @@ import { acceptIntent, ApiError } from "@/lib/api";
 import { useWalletStore } from "@/store/wallet";
 import { useToastStore } from "@/store/toast";
 import type { OpenIntent } from "@/lib/types";
+import { assertWalletReady } from "@/lib/network";
 
 function AcceptErrorMessage(err: unknown): string {
   if (err instanceof ApiError && err.status === 409) {
@@ -52,6 +53,7 @@ export function useAcceptIntent() {
           }
         }
       }
+      assertWalletReady(process.env.NEXT_PUBLIC_NETWORK ?? "testnet", wallet.network);
       const solverAddress = wallet.address;
 
       await mutate<OpenIntent[]>(
