@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { EmptyState } from "@/components/EmptyState";
+import { SkeletonCard } from "@/components/Skeleton";
 import { SolverHeaderCard } from "@/components/SolverHeaderCard";
-import { SolverFillHistory } from "@/components/SolverFillHistory";
 import { SolverTimeline } from "@/components/SolverTimeline";
+import { SolverFillHistory } from "@/components/SolverFillHistory";
 import { useSolver } from "@/hooks/useSolver";
 import { useIntentFeed } from "@/hooks/useIntentFeed";
 import { useTranslation, useLocale } from "@/lib/i18n/I18nProvider";
@@ -56,6 +58,7 @@ export default function SolverDetailPage({ params }: { params: { address: string
           >
             <div className="h-6 w-2/3 bg-vx-surface rounded animate-pulse" />
             <div className="h-4 w-1/3 bg-vx-surface rounded animate-pulse" />
+            <SkeletonCard rows={2} />
           </div>
         ) : error ? (
           <EmptyState message="Couldn't load solver details right now. Try again shortly." />
@@ -63,6 +66,7 @@ export default function SolverDetailPage({ params }: { params: { address: string
           <EmptyState message="No solver found at that address." />
         ) : (
           <>
+            {/* Header card */}
             <SolverHeaderCard solver={solver} />
 
               <div className="text-xs sm:text-sm text-vx-muted font-mono break-all">
@@ -128,6 +132,16 @@ export default function SolverDetailPage({ params }: { params: { address: string
               />
             </div>
 
+            {/* ── Solver Timeline ─────────────────────────────────────────── */}
+
+            <div className="mb-6">
+              <SolverTimeline
+                solverAddress={solver.address}
+                fills={fillHistory}
+                isLoading={historyLoading && fillHistory.length === 0}
+              />
+            </div>
+
             <SolverFillHistory solverAddress={solver.address} />
           </>
         )}
@@ -137,14 +151,6 @@ export default function SolverDetailPage({ params }: { params: { address: string
     </div>
   );
 }
-
-            <div className="mb-6">
-              <SolverTimeline
-                solverAddress={solver.address}
-                fills={fillHistory}
-                isLoading={historyLoading && fillHistory.length === 0}
-              />
-            </div>
 
             <SolverFillHistory solverAddress={solver.address} />
           </>
