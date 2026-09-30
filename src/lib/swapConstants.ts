@@ -24,6 +24,18 @@ export const QUOTE_DELTA_TTL_MS = 4_000;
 /** Seconds-remaining at or below which the "quote expires in" hint shows. */
 export const QUOTE_EXPIRY_WARNING_SECONDS = 5;
 
+/**
+ * Quote lifetime, in ms. Kept as an alias of the stale-quote threshold so the
+ * quote lifecycle and freshness checks agree on a single 30 s window.
+ */
+export const QUOTE_TTL_MS = STALE_QUOTE_THRESHOLD_MS;
+
+/** How long before expiry the quote should proactively refresh. */
+export const QUOTE_REFRESH_MARGIN_MS = 7_500;
+
+/** Backoff schedule (ms) for retrying a failed quote refresh. */
+export const QUOTE_REFRESH_BACKOFF_MS = [1_000, 2_000, 4_000, 8_000] as const;
+
 export type QuoteFreshness = {
   isStale: boolean;
   /** Whole seconds until the quote goes stale; `null` when there is no quote. */
