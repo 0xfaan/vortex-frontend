@@ -1,14 +1,14 @@
 "use client";
 
-import { useEffect } from "react";
+import { useState } from "react";
 import { useWalletStore } from "@/store/wallet";
 import { useToastStore } from "@/store/toast";
 import { useTranslation } from "@/lib/i18n/I18nProvider";
 import { truncateAddress } from "@/lib/stellarAddress";
 import { QrCode } from "@/components/QrCode";
+import { WalletModal } from "@/components/WalletModal";
 
-const FREIGHTER_INSTALL_URL = "https://www.freighter.app/";
-const NETWORK_CHECK_INTERVAL_MS = 8000;
+const truncate = (value: string) => value.length > 12 ? `${value.slice(0, 6)}…${value.slice(-4)}` : value;
 
 export function ConnectWalletButton({ compact = false }: { compact?: boolean }) {
   const { t } = useTranslation();
