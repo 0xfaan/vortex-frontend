@@ -14,6 +14,7 @@ import { useTranslation, useLocale } from "@/lib/i18n/I18nProvider";
 import { timeAgo } from "@/lib/time";
 import { CHAINS } from "@/lib/marketData";
 import { isValidStellarPublicKey } from "@/lib/stellarAddress";
+import { sanitizeDisplayText } from "@/lib/textSafety";
 import { formatUsdCompact, localeToBcp47 } from "@/lib/format";
 
 /** Inline error/not-found state used within this page only. */

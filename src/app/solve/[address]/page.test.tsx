@@ -610,7 +610,6 @@ describe("SolverDetailPage", () => {
     const skeletons = screen.queryAllByTestId("skeleton");
     expect(skeletons.length).toBe(0);
   });
-
   it("renders the extracted SolverHeaderCard and SolverFillHistory components with real solver data", () => {
     useSolverMock.mockReturnValue({
       solver: solverData,

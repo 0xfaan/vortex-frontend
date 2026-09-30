@@ -19,15 +19,8 @@ export const es = {
   "wallet.error.connectFailed": "No se pudo conectar la billetera.",
 
   "swap.chainPicker.title": "Seleccionar cadena origen",
-  "swap.destination.label": "Dirección de destino",
-  "swap.destination.placeholder": "G...",
-  "swap.destination.invalidAddress": "Ingresa una dirección Stellar válida (comienza con G).",
 
-  "activityFeed.status.live": "En vivo",
-  "activityFeed.status.polling": "Actualizando",
-  "activityFeed.error.unavailable": "El feed en vivo no está disponible ahora.",
   "activityFeed.empty": "Aún no hay llenados.",
-  "activityFeed.item.route": "{chain} · vía {solver}",
 
   "swap.from.label": "De",
   "swap.from.amountLabel": "Cantidad a intercambiar",
@@ -77,15 +70,21 @@ export const es = {
   "swap.submit.retryCta":
     "Reintentar: Intercambiar {amount} {srcToken} → {dstToken}",
 
-  "swap.destination.label": "Dirección de destino",
-  "swap.destination.placeholder": "G...",
-  "swap.destination.invalidAddress": "Ingresa una dirección de Stellar válida (empieza con G).",
-
   "swap.disclaimer": "El swap se liquida directamente en Stellar · Sin tokens envueltos · Protegido por bonos de solver",
 
   "swap.destination.label": "Dirección de destino",
   "swap.destination.placeholder": "G...",
   "swap.destination.invalidAddress": "Ingresa una dirección Stellar válida (comienza con G).",
+  "swap.destination.pasteConfirm": "Dirección pegada desde el portapapeles. Verifica que coincida antes de usarla:",
+  "swap.destination.pasteConfirmCta": "Usar esta dirección",
+  "swap.destination.pasteDismissCta": "Descartar",
+  "swap.quote.expiresIn": "Se actualiza en {seconds}s",
+  "swap.quote.expired": "Cotización expirada",
+  "swap.quote.refreshCta": "Actualizar cotización",
+  "swap.error.troubleshoot.title": "¿Por qué pasó esto?",
+  "swap.error.troubleshoot.balance": "Verifica que tu billetera tenga saldo suficiente en la cadena de origen (más gas).",
+  "swap.error.troubleshoot.network": "Confirma que Freighter esté en la red esperada.",
+  "swap.error.troubleshoot.retry": "Espera un momento e inténtalo de nuevo; el relay o un solver pueden estar brevemente no disponibles.",
 
   "home.hero.eyebrow": "Stellar Agentic Hackathon 2025",
   "home.hero.titleLine1": "Intercambia desde cualquier cadena",
